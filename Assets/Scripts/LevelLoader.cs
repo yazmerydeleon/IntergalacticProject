@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
+    // Start is called before the first frame update
     void Start()
     {
         Player player = new Player();
@@ -11,16 +12,18 @@ public class LevelLoader : MonoBehaviour
         Enemy enemy1 = new Enemy();
         Enemy enemy2 = new Enemy();
 
-        Weapon gunWeapon1 = new Weapon();
-        Weapon gunWeapon2 = new Weapon("Laser", 100.0f);
+        Enemy.SubtractEnemy();
 
-        //Enums
+        Debug.Log(Enemy.numberOfEnemies);
+
+        Weapon gun1 = new Weapon();
+
         EnemyType enemyType1 = new EnemyType();
         enemyType1 = EnemyType.Melee;
 
         EnemyType enemyType2 = EnemyType.MachineGunner;
 
-        //Distribute weapons
-       
+        player.weapon= gun1;
     }
+
 }
