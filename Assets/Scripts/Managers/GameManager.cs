@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
     void CreateEnemy()
     {
         GameObject tempObject = Instantiate(enemyTypes.RandomEnemyType());
-        //Debug.Log(tempObject1);
         tempObject.transform.position = spawnPositions[Random.Range(0, spawnPositions.Length)].position;
     }
 
@@ -87,7 +86,6 @@ public class GameManager : MonoBehaviour
 
         while (true)
         {
-            //yield return new WaitForSeconds(2);
             yield return new WaitForSeconds(currentSpawnRate);
             CreateEnemy();
             UpdateSpawnRate();

@@ -18,18 +18,18 @@ public class Weapon
     }
 
     //Explicitly Defined Constructor Override
-    public Weapon(string _name, float _damage, float _bulletSpeed)
+    public Weapon(string name, float damage, float bulletSpeed)
     {
-        name = _name;
-        damage = _damage;
-        bulletSpeed = _bulletSpeed;
+        this.name = name;
+        this.damage = damage;
+        this.bulletSpeed = bulletSpeed;
 
     }
 
 
-    public void Shoot(GameObject _bullet, PlayableObject _player, string _targettag, float _timeToDie)
+    public void Shoot(GameObject _bullet, PlayableObject _shooter, string _targettag, float _timeToDie)
     {
-        GameObject tempBullet = GameObject.Instantiate(_bullet, _player.transform.position, _player.transform.rotation);
+        GameObject tempBullet = GameObject.Instantiate(_bullet, _shooter.transform.position, _shooter.transform.rotation);
         tempBullet.GetComponent<Bullet>().SetBullet(damage, bulletSpeed);
 
     }

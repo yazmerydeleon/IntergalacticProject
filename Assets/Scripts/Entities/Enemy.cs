@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : PlayableObject
 {
-    [SerializeField] private float speed;
+    [SerializeField] protected float speed;
 
     private string name;
     private EnemyType enemyType;
@@ -32,6 +32,8 @@ public class Enemy : PlayableObject
     {
         if (target != null)
         {
+            float angle = Mathf.Atan2(target.position.y, target.position.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle+90); 
             Move(target.position, speed);
         }
         else
