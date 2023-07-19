@@ -126,8 +126,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyDelay: 0
-  speed: 0.002
+  speed: 0.001
   bulletPrefab: {fileID: 6836432839937773716, guid: 2976f46df74691247a0483f06fae7e16, type: 3}
+  rate: 2
+  stoppingDistance: 2.5
 --- !u!1 &6169587316369665077
 GameObject:
   m_ObjectHideFlags: 0
