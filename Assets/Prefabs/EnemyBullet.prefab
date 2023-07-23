@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6836432839937773712}
   - component: {fileID: 1521153707712698558}
   - component: {fileID: 9060353985270356411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyBullet
-  m_TagString: Untagged
+  m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6836432839937773716}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.4177, y: -0.427, z: 0}
-  m_LocalScale: {x: 0.14528517, y: 0.14130875, z: 0.22465621}
+  m_LocalPosition: {x: -7.41091, y: -0.41908, z: 0}
+  m_LocalScale: {x: 0.15885626, y: 0.15714242, z: 0.22465621}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -137,5 +137,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToPlayer: 1
-  bulletSpeed: 1
+  bulletSpeed: 5
   bulletDuration: 5

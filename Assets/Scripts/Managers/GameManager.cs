@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
 
     public ScoreManager scoreManager;
+    public PickupManager pickupManager;
     public UIManager UIManager;
     public Player player;
   

@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class Weapon
 {
-    private string name;
+    //private string name;
 
-    private float damage;
+    //private float damage;
 
-    private float bulletSpeed;
+    //private float bulletSpeed;
 
 
     //Explicitly Defined Constructor
-    public Weapon()
-    {
+    //public Weapon()
+    //{
 
-    }
+    //}
 
     //Explicitly Defined Constructor Override
-    public Weapon(string name, float damage, float bulletSpeed)
+    //public Weapon(string name, float damage, float bulletSpeed)
+    //{
+    //    this.name = name;
+    //   // this.damage = damage;
+    //    //this.bulletSpeed = bulletSpeed;
+
+    //}
+
+
+    public void Shoot(GameObject _bullet, PlayableObject _shooter)
     {
-        this.name = name;
-        this.damage = damage;
-        this.bulletSpeed = bulletSpeed;
-
-    }
-
-
-    public void Shoot(GameObject _bullet, PlayableObject _shooter, string _targettag, float _timeToDie)
-    {
-        GameObject tempBullet = GameObject.Instantiate(_bullet, _shooter.transform.position, _shooter.transform.rotation);
-        tempBullet.GetComponent<Bullet>().SetBullet(damage, bulletSpeed);
+        GameObject.Instantiate(_bullet, _shooter.transform.position, _shooter.transform.rotation);
+       // tempBullet.GetComponent<Bullet>().SetBullet(damage, bulletSpeed);
 
     }
 }

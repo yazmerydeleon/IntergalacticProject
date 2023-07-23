@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private TMP_Text healthText;
+    [SerializeField] private TMP_Text nukedPickedText;
+    [SerializeField] private TMP_Text GunPowerupTimerText;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,4 +47,14 @@ public class UIManager : MonoBehaviour
         highScoreText.SetText(GameManager.GetInstance().scoreManager.GetHighScore().ToString());
     }
 
+    public void UpdatePowerupScore()
+    {
+        nukedPickedText.SetText(GameManager.GetInstance().pickupManager.GetPowerupScore().ToString());
+
+    }
+
+    public void ShowGunPowerupTime()
+    {
+        GunPowerupTimerText.SetText(GameManager.GetInstance().pickupManager.GunPowerTimer().ToString());
+    }
 }

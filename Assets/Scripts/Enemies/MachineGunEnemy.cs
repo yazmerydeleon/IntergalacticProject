@@ -36,6 +36,7 @@ public class MachineGunEnemy : Enemy
             {
                 GameObject.Instantiate(bulletPrefab, this.transform.position, this.transform.rotation);
             }
+
             if (timerCooldown < rate)
             {
                 timerCooldown += Time.deltaTime;

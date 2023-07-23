@@ -46,4 +46,5 @@ public class ScoreManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("HighScore", highScore);
     }
+
 }

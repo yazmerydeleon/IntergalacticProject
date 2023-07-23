@@ -7,13 +7,16 @@ public class Player : PlayableObject
 {
     [SerializeField] private Camera camera;
     [SerializeField] private float timeToDie;
-    [SerializeField] private float weaponDamage;
-    [SerializeField] private float weaponSpeed;
+    //[SerializeField] private float weaponDamage;
+    //[SerializeField] private float weaponSpeed;
     [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private float playerHealth;
 
     private Rigidbody2D playerRigidBody;    
     private Health health;
     private string name;
+
+    private float timerCooldown = 0;
 
     public Action<float> healthUpdate;
     public float speed;
@@ -23,11 +26,11 @@ public class Player : PlayableObject
     {
         playerRigidBody = GetComponent<Rigidbody2D>();
 
-        health = new Health(100, 0.5f, 50);
+        health = new Health(playerHealth, 0.5f, playerHealth);
         healthUpdate?.Invoke(health.GetHealth());
 
         //Set player weapon
-        weapon = new Weapon("Player Weapon", weaponDamage, weaponSpeed);
+        weapon = new Weapon();
     }
         
     public override void Move(Vector2 direction, Vector2 target)
@@ -43,9 +46,23 @@ public class Player : PlayableObject
 
     }
 
-    public override void Shoot(Vector3 direction, float speed)
+    public override void Shoot(Vector3 direction, float rate)
     {
-        weapon.Shoot(bulletPrefab, this, "Enemy", timeToDie);
+        if(timerCooldown == 0)
+        {
+            weapon.Shoot(bulletPrefab, this);
+        }
+
+        if (timerCooldown < rate)
+        {
+            timerCooldown += Time.deltaTime;
+        }
+        else
+        {
+            timerCooldown = 0;
+        }
+
+        
     }
 
     public override void GetDamage(float damage)
@@ -55,7 +72,7 @@ public class Player : PlayableObject
 
         if(health.GetHealth() <= 0)
         {
-            Die();
+            StartCoroutine(Die());
         }
     }
 

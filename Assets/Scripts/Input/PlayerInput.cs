@@ -6,12 +6,14 @@ public class PlayerInput : MonoBehaviour
 {
     private Player player;
     private float horizontal, vertical;
-    private Vector2 lookTarget;
+    private Vector2 lookTarget;    
+
+    [SerializeField] private FollowPlayerClockPowerup clockPowerup;
 
     // Start is called before the first frame update
     void Start()
     {
-        player = GetComponent<Player>();
+        player = this.GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -21,9 +23,30 @@ public class PlayerInput : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         lookTarget = Input.mousePosition;
 
-        if (Input.GetMouseButtonDown(0))
+        if (clockPowerup.IsEnabled) //Temporary player power up high rate shoot
         {
-            player.Shoot(Vector3.zero, 0);
+            if (Input.GetMouseButton(0))
+            {
+                player.Shoot(Vector3.zero, clockPowerup.Rate);
+                Debug.Log("HighRate");
+
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                player.Shoot(Vector3.zero, 0);
+                Debug.Log("Shoot");
+
+            }
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            // if nuke > 0
+            NukePowerup.DestroyEntitiesWithDifferentTag();
+            GameManager.GetInstance().pickupManager.DecrementPowerupScore();
         }
     }
 
